@@ -1,4 +1,5 @@
 #include <Button.h>
+#include "inputs.h"
 
 enum relayNum{
   scorePin = 31,
