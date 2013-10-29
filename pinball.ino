@@ -1,5 +1,8 @@
 #include <Button.h>
 #include "inputs.h"
+#include "switch.h"
+
+//I think we are going to try to avoid using delay();
 
 enum relayNum{
   scorePin = 31,
