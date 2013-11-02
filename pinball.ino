@@ -1,87 +1,31 @@
 #include <Button.h>
-#include "inputs.h"
 #include "switch.h"
 
-//I think we are going to try to avoid using delay();
+//I think we are going to try to avoid using delay(); as much as possible
 
-enum relayNum{
-  scorePin = 31,
-  ballReturnPin = 33
-  
-};
+pSwitch switches[2];
+Button button = Button(53,PULLDOWN);
 
-typedef struct Relay
-{
-  relayNum pin;
-  int state;
-}Relay;
-
-void changeState(Relay *re, int state);
-
-Relay scoreResetRelay = {scorePin, HIGH};
-Relay ballReturnRelay = {ballReturnPin, HIGH};
-
-Button startButton = Button(30, HIGH);
-Button ballReturnButton = Button(32, HIGH);
-Button ballReturnCheckSwitch = Button(34, HIGH);
-
-void changeState(Relay *re, int state){
-  re->state = state;
-  digitalWrite(re->pin, re->state);
+void setupSwitches(){
+	switches[1] = pSwitch(52, 100, 1000, LOW);
 }
 
-
-int ballStatus = 0;
-int start = 1;
-int i;
-int ballNumber = 1;
-
-void setup()
-{
- /* pinMode(startButton, INPUT);
-  pinMode(ballReturnButton, INPUT);
-  pinMode(ballReturnCheckSwitch, INPUT); */
-  pinMode(scoreResetRelay.pin, OUTPUT);
-  pinMode(ballReturnRelay.pin, OUTPUT);
-  
-  digitalWrite(scoreResetRelay.pin, scoreResetRelay.state);
-  digitalWrite(ballReturnRelay.pin, ballReturnRelay.state);
-  
+void setup(){
+	Serial.begin(9600);
+	Serial.write("Started\n");
+	setupSwitches();
 }
 
-
-void loop()
-{
-  if(start==1){
-    startButton.listen();
-    
-     if (startButton.onPress()){
-       for(i = 0; i < 11; i++){
-         startButton.listen();
-         changeState(&scoreResetRelay, LOW);
-         delay(100);
-         changeState(&scoreResetRelay, HIGH);
-         delay(100);
-       }
-       ballNumber = 1;
-       ballStatus = 0;
-       start = 0;
-       returnBall();
-     }
-  }else{
-    ballReturnButton.listen();
-    ballReturnCheckSwitch.listen();
-    if(ballReturnButton.onPress()){
-      returnBall();
-    }
-    if(ballReturnCheckSwitch.onPress()){
-      ballStatus = 1;
-    }
-    
-  }
+void loop(){
+	if(button.uniquePress()){
+		switches[1].avtivate();
+	}
+	
+	switches[1].loop();
+	
 }
 
-
+/*
 void returnBall(){
   if(ballStatus == 1){
     ballNumber++;
@@ -99,3 +43,4 @@ void returnBall(){
     changeState(&ballReturnRelay, HIGH);
   }
 }
+*/
