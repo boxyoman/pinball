@@ -32,7 +32,7 @@ void pSwitch::setup(){
 	switchState = swOff;
 }
 
-void pSwitch::avtivate(){
+void pSwitch::activate(){
 	if(switchState == swOff){
 		this->state = this->activeState;
 		switchState = swInDelay;

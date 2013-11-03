@@ -32,7 +32,7 @@ public:
 	bool activeState;
 	switchStates switchState;
 	void loop(); //call every tick
-	void avtivate();
+	void activate();
 private:
 	unsigned long startTime;
 	void setup();

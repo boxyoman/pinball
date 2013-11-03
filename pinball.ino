@@ -3,11 +3,14 @@
 
 //I think we are going to try to avoid using delay(); as much as possible
 
-pSwitch switches[2];
-Button button = Button(53,PULLDOWN);
+pSwitch switches[numOfSwitches];
+Button button[4] = {Button(53,PULLDOWN), Button(51,PULLDOWN), Button(49,PULLDOWN), Button(47,PULLDOWN)};
 
 void setupSwitches(){
-	switches[1] = pSwitch(52, 100, 1000, LOW);
+	switches[flickUp] = pSwitch(52, 70, 1000, LOW);
+	switches[bumper2] = pSwitch(50, 70, 0, LOW);
+	switches[bumper1] = pSwitch(48, 70, 0, LOW);
+	switches[bumper3] = pSwitch(46, 70, 0, LOW);
 }
 
 void setup(){
@@ -17,12 +20,26 @@ void setup(){
 }
 
 void loop(){
-	if(button.uniquePress()){
-		switches[1].avtivate();
+	if(button[0].uniquePress()){
+		switches[flickUp].activate();
+	}
+	//set off bumper 2
+	if(button[1].uniquePress()){
+		switches[bumper2].activate();
+	}
+	//set off bumper 3
+	if(button[2].uniquePress()){
+		switches[bumper3].activate();
+	}
+	//set off bumper 1
+	if(button[3].uniquePress()){
+		switches[bumper1].activate();
 	}
 	
-	switches[1].loop();
-	
+	switches[flickUp].loop();
+	switches[bumper1].loop();
+	switches[bumper2].loop();
+	switches[bumper3].loop();
 }
 
 /*
