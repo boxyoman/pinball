@@ -7,7 +7,7 @@ enum {
 	bumper1,
 	bumper2,
 	bumper3,
-	targget1,
+	dropTarggets,
 	targget2,
 	targget3,
 	flickUp,
