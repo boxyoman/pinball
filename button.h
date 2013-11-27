@@ -13,7 +13,7 @@ enum{
 	butFlickUp,
 	butReturnBall,
 	butBallReturned,
-	numOfButtons;
+	numOfButtons
 };
 
 class pButton{

@@ -1,4 +1,4 @@
-#include "switch.h"
+#include "outputs.h"
 
 pOutputs::pOutputs(){
 	this->pinNum = 52;

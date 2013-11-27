@@ -11,7 +11,7 @@ pButton::pButton(int pin, int onTime, bool activeState){
 	this->state = !activeState;
 }
 
-void loop(){
+void pButton::loop(){
 	state = digitalRead(pin);
 	unsigned long eTime = millis() - startTime;
 	if (!stateEqual){

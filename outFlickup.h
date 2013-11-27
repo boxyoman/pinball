@@ -4,7 +4,7 @@
 #include "outputs.h"
 
 class pOutFlickup : public pOutputs{
-	protected:
+	public:
 		pOutFlickup() : pOutputs(52, 70, 1000, LOW){};
 };
 

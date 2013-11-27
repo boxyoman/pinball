@@ -2,6 +2,7 @@
 #define game_h
 
 #include "outputs.h"
+#include "button.h"
 
 class pGame{
 	public:
