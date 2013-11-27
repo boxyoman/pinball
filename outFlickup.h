@@ -8,4 +8,4 @@ class pOutFlickup : public pOutputs{
 		pOutFlickup() : pOutputs(52, 70, 1000, LOW){};
 };
 
-#endif flickup_h
+#endif
