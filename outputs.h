@@ -9,7 +9,7 @@ enum {
 	outBumper3,
 	outDropTargets,
 	outFlickUp,
-	//outReturnBall,
+	outReturnBall,
 	numOfOutputs
 };
 

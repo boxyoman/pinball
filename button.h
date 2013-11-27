@@ -11,8 +11,8 @@ enum{
 	//butTargget2,
 	//butTargget3,
 	butFlickup,
-	//butReturnBall,
-	//butBallReturned,
+	butReturnBall,
+	butBallReturned,
 	numOfButtons
 };
 

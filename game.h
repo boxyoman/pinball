@@ -6,6 +6,7 @@
 
 class pGame{
 	public:
+		int ballCount;
 		void loop();
 		void setup();
 		pOutputs outputs[numOfOutputs];
