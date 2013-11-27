@@ -1,5 +1,7 @@
 #include "button.h"
 
+pButton::pButton(){}
+
 pButton::pButton(int pin, int onTime, bool activeState){
 	pinMode(pin, INPUT);
 	this->pin = pin;

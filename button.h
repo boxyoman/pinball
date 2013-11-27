@@ -25,6 +25,7 @@ class pButton{
 	unsigned long startTime;
 	int onTime;				//debounce time
 	public:
+		pButton();
 		pButton(int pin, int time, bool activeState);
 		void loop();
 		
