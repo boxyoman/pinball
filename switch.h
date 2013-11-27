@@ -11,6 +11,7 @@ enum {
 	targget2,
 	targget3,
 	flickUp,
+	swReturnBall,
 	numOfSwitches
 };
 
