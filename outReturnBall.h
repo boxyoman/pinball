@@ -5,7 +5,7 @@
 
 class pOutReturnBall : public pOutputs{
 	public:
-		pOutReturnBall() : pOutputs(42, 70, 1000, LOW){};
+		pOutReturnBall() : pOutputs(42, 70, 1000, LOW){Serial.write("pOutReturnBall initialized\n");};
 };
 
 #endif

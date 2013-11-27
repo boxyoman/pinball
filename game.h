@@ -9,8 +9,8 @@ class pGame{
 		int ballCount;
 		void loop();
 		void setup();
-		pOutputs outputs[numOfOutputs];
-		pButton buttons[numOfButtons];
+		pOutputs *outputs[numOfOutputs];
+		pButton *buttons[numOfButtons];
 };
 
 #endif

@@ -8,7 +8,7 @@ class pButBumper3 : public pButton{
 	pGame &game;
 	
 	public:
-		pButBumper3(pGame &_game) : game(_game), pButton(49, 70, HIGH){};
+		pButBumper3(pGame &_game) : game(_game), pButton(49, 1, HIGH){};
 		void onActive();
 		
 };

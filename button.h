@@ -18,6 +18,7 @@ enum{
 
 class pButton{
 	int pin;
+	bool letGo;
 	bool activeState;
 	bool lastState;
 	bool stateEqual;
@@ -28,10 +29,11 @@ class pButton{
 		pButton(){};
 		pButton(int pin, int time, bool activeState);
 		void loop();
-		virtual ~pButton(){};
+		
 	private:
 		//for subclassing
-		virtual void onActive(){};
+		virtual void onActive(){ Serial.write("pButton onactive called\n"); };
+		
 
 };
 

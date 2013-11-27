@@ -1,5 +1,5 @@
 #include "butFlickup.h"
 
 void pButFlickup::onActive(){
-	game.outputs[outFlickUp].activate();
+	game.outputs[outFlickUp]->activate();
 }
