@@ -8,8 +8,6 @@ enum {
 	outBumper2,
 	outBumper3,
 	outDropTarggets,
-	outTargget2,
-	outTargget3,
 	outFlickUp,
 	outReturnBall,
 	numOfOutputs
