@@ -1,7 +1,5 @@
 #include "button.h"
 
-pButton::pButton(){}
-
 pButton::pButton(int pin, int onTime, bool activeState){
 	pinMode(pin, INPUT);
 	this->pin = pin;
@@ -26,6 +24,7 @@ void pButton::loop(){
 	}else{
 		if(lastState == state){
 			if (eTime > onTime){
+				Serial.write("Test\n");
 				onActive();
 				stateEqual = false;
 			}

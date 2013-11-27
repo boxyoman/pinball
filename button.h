@@ -28,8 +28,8 @@ class pButton{
 		pButton(){};
 		pButton(int pin, int time, bool activeState);
 		void loop();
-		
-	protected:
+		virtual ~pButton(){};
+	private:
 		//for subclassing
 		virtual void onActive(){};
 
