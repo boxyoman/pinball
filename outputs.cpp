@@ -1,6 +1,6 @@
 #include "switch.h"
 
-pSwitch::pSwitch(){
+pOutputs::pOutputs(){
 	this->pinNum = 52;
 	this->onTime = 100;
 	this->delayTime = 100;
@@ -8,7 +8,7 @@ pSwitch::pSwitch(){
 	setup();
 }
 
-pSwitch::pSwitch(int pinNum, int onTime, int delayTime){
+pOutputs::pOutputs(int pinNum, int onTime, int delayTime){
 	this->pinNum = pinNum;
 	this->onTime = onTime;
 	this->delayTime = delayTime;
@@ -16,7 +16,7 @@ pSwitch::pSwitch(int pinNum, int onTime, int delayTime){
 	setup();
 }
 
-pSwitch::pSwitch(int pinNum, int onTime, int delayTime, bool activeState){
+pOutputs::pOutputs(int pinNum, int onTime, int delayTime, bool activeState){
 	this->activeState = activeState;
 	this->delayTime = delayTime;
 	this->pinNum = pinNum;
@@ -24,7 +24,7 @@ pSwitch::pSwitch(int pinNum, int onTime, int delayTime, bool activeState){
 	setup();
 }
 
-void pSwitch::setup(){
+void pOutputs::setup(){
 	pinMode(pinNum, OUTPUT);
 	state = (activeState==LOW)?HIGH:LOW;
 	digitalWrite(pinNum, state);
@@ -32,15 +32,16 @@ void pSwitch::setup(){
 	switchState = swOff;
 }
 
-void pSwitch::activate(){
+void pOutputs::activate(){
 	if(switchState == swOff){
+		onActive();
 		this->state = this->activeState;
 		switchState = swInDelay;
 		startTime = millis();
 	}
 }
 
-void pSwitch::loop(){
+void pOutputs::loop(){
 	//keep switch on until time runs out
 	if(startTime != 0){
 		unsigned long eTime = millis() - startTime;
@@ -49,6 +50,7 @@ void pSwitch::loop(){
 			switchState = swOn;
 		}
 		if(eTime >= onTime+delayTime && switchState == swOn){
+			onDeavtive();
 			switchState = swOff;
 			state = (activeState==LOW)?HIGH:LOW;
 			digitalWrite(pinNum, state);

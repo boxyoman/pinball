@@ -1,19 +1,31 @@
-#ifndef switch_h
-#define switch_h
+#ifndef outputs_h
+#define outputs_h
 
 #include "Arduino.h"
 
+enum {
+	outBumper1,
+	outBumper2,
+	outBumper3,
+	outDropTarggets,
+	outTargget2,
+	outTargget3,
+	outFlickUp,
+	outReturnBall,
+	numOfOutputs
+};
+
 typedef enum{
-	swInDelay=0,
-	swOn=1,
-	swOff=2,
+	swInDelay,
+	swOn,
+	swOff,
 } switchStates;
 
-class pSwitch{
+class pOutputs{
 public:
-	pSwitch();
-	pSwitch(int pinNum, int onTime, int delayTime);
-	pSwitch(int pinNum, int onTime, int delayTime, bool activeState);
+	pOutputs();
+	pOutputs(int pinNum, int onTime, int delayTime);
+	pOutputs(int pinNum, int onTime, int delayTime, bool activeState);
 	int pinNum;
 	int onTime; //the amount of time the switch should be on for(in milliseconds)
 	int delayTime;
@@ -23,7 +35,8 @@ public:
 	void loop(); //call every tick
 	void activate();
 	
-	//
+protected:
+	//for subclassing
 	virtual void onActive(){};
 	virtual void onDeavtive(){};
 	
