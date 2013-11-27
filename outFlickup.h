@@ -3,9 +3,9 @@
 
 #include "outputs.h"
 
-class pOutFlickup : public pOutputs{
+class pOutFlickUp : public pOutputs{
 	public:
-		pOutFlickup() : pOutputs(52, 70, 1000, LOW){};
+		pOutFlickUp() : pOutputs(52, 70, 1000, LOW){};
 };
 
-#endif flickup_h
+#endif

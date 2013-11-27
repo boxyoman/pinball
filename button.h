@@ -7,10 +7,10 @@ enum{
 	butBumper1,
 	butBumper2,
 	butBumper3,
-	butDropTarggets,
-	butTargget2,
-	butTargget3,
-	butFlickUp,
+	butDropTargets, 
+	//butTargget2,
+	//butTargget3,
+	butFlickup,
 	butReturnBall,
 	butBallReturned,
 	numOfButtons
@@ -25,7 +25,7 @@ class pButton{
 	unsigned long startTime;
 	int onTime;				//debounce time
 	public:
-		pButton();
+		pButton(){};
 		pButton(int pin, int time, bool activeState);
 		void loop();
 		

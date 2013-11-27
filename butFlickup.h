@@ -4,12 +4,13 @@
 #include "button.h"
 #include "game.h"
 
-
-class pOutFlickup : public pButton{
+class pButFlickup : public pButton{
+	pGame &game;
+	
 	public:
-		pGame game;
-		pOutFlickup(pGame &game) : pButton(53, 70, HIGH){};
+		pButFlickup(pGame &_game) : game(_game), pButton(53, 70, HIGH){};
 		void onActive();
+		
 };
 
 #endif
