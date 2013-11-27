@@ -9,10 +9,12 @@ pButton::pButton(int pin, int onTime, bool activeState){
 	this->startTime = 0;
 	this->stateEqual = false;
 	this->state = !activeState;
+	this->letGo = true;
 }
 
 void pButton::loop(){
 	state = digitalRead(pin);
+	
 	unsigned long eTime = millis() - startTime;
 	if (!stateEqual){
 		if(state == activeState){
@@ -24,7 +26,11 @@ void pButton::loop(){
 	}else{
 		if(lastState == state){
 			if (eTime > onTime){
-				onActive();
+				if (letGo){
+					Serial.write("pButReturnBall activated\n");
+					this->onActive();
+					letGo = false;
+				}
 				stateEqual = false;
 			}
 			
@@ -33,4 +39,7 @@ void pButton::loop(){
 		}
 	}
 	lastState = state;
+	if (state != activeState){
+		letGo = true;
+	}
 }

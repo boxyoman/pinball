@@ -15,15 +15,18 @@
 
 void pGame::setup(){
 	//initialize game here
+	Serial.begin(9600);
+	Serial.write("Started\n");
+	
 	ballCount = 5;
 	
-	buttons[butBumper1] = pButBumper1(*this);
+	/*buttons[butBumper1] = pButBumper1(*this);
 	buttons[butBumper2] = pButBumper2(*this);
 	buttons[butBumper3] = pButBumper3(*this);
 	buttons[butDropTargets] = pButDropTargets(*this);
-	buttons[butFlickup] = pButFlickup(*this);
+	buttons[butFlickup] = pButFlickup(*this);*/
 	buttons[butReturnBall] = pButReturnBall(*this);
-	buttons[butBallReturned] = pButBallReturned(*this);
+	//buttons[butBallReturned] = pButBallReturned(*this);
 	
 	outputs[outBumper1] = pOutBumper1();
 	outputs[outBumper2] = pOutBumper2();
@@ -40,7 +43,11 @@ void pGame::loop(){
 		outputs[i].loop();
 	}
 	//loop through buttons
-	for(int i=0; i<numOfButtons; i++){
+	
+	
+	buttons[butReturnBall].loop();
+	
+	/*for(int i=0; i<numOfButtons; i++){
 		buttons[i].loop();
-	}
+	}*/
 }

@@ -7,7 +7,7 @@
 class pButBallReturned : public pButton{
 	pGame &game;
 	public:
-		pButBallReturned(pGame &_game) : game(_game), pButton(47, 70, HIGH){};
+		pButBallReturned(pGame &_game) : game(_game), pButton(43, 70, HIGH){};
 		void onActive();
 		
 };

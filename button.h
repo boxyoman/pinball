@@ -18,6 +18,7 @@ enum{
 
 class pButton{
 	int pin;
+	bool letGo;
 	bool activeState;
 	bool lastState;
 	bool stateEqual;
@@ -28,8 +29,6 @@ class pButton{
 		pButton(){};
 		pButton(int pin, int time, bool activeState);
 		void loop();
-		
-	protected:
 		//for subclassing
 		virtual void onActive(){};
 
