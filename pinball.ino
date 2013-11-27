@@ -22,7 +22,7 @@ void loopSwitches();
 */
 //I think we are going to try to avoid using delay(); as much as possible
 
-pSwitch switches[numOfSwitches];
+pSwitch outputs[numOfSwitches];
 Button button[7] = {
 	Button(53,PULLDOWN),
 	Button(51,PULLDOWN), 
@@ -34,12 +34,12 @@ Button button[7] = {
 };
 
 void setupSwitches(){
-	switches[flickUp] = pSwitch(52, 70, 1000, LOW);
-	switches[bumper2] = pSwitch(50, 70, 0, LOW);
-	switches[bumper1] = pSwitch(48, 70, 0, LOW);
-	switches[bumper3] = pSwitch(46, 70, 0, LOW);
-	switches[dropTarggets] = pSwitch(44, 70, 500, LOW);
-	switches[swReturnBall] = pSwitch(42, 70, 1000, LOW);
+	outputs[flickUp] = pSwitch(52, 70, 1000, LOW);
+	outputs[bumper2] = pSwitch(50, 70, 0, LOW);
+	outputs[bumper1] = pSwitch(48, 70, 0, LOW);
+	outputs[bumper3] = pSwitch(46, 70, 0, LOW);
+	outputs[dropTarggets] = pSwitch(44, 70, 500, LOW);
+	outputs[swReturnBall] = pSwitch(42, 70, 1000, LOW);
 }
 
 void setup(){
@@ -52,55 +52,52 @@ void setup(){
 
 void ballPlay(){
 	if(button[0].uniquePress()){
-		switches[flickUp].activate();
+		outputs[flickUp].activate();
 	}
 	//set off bumper 2
 	if(button[1].uniquePress()){
-		if(switches[bumper1].switchState == swOff && switches[bumper3].switchState == swOff){
-			switches[bumper2].activate();
+		if(outputs[bumper1].switchState == swOff && outputs[bumper3].switchState == swOff){
+			outputs[bumper2].activate();
 		}
 	}
 	//set off bumper 3
 	if(button[2].uniquePress()){
-		if(switches[bumper2].switchState == swOff && switches[bumper1].switchState == swOff){
-			switches[bumper3].activate();
+		if(outputs[bumper2].switchState == swOff && outputs[bumper1].switchState == swOff){
+			outputs[bumper3].activate();
 		}
 	}
 
 	//set off bumper 1
 	if(button[3].uniquePress()){
-		if(switches[bumper2].switchState == swOff && switches[bumper3].switchState == swOff){
-			switches[bumper1].activate();
+		if(outputs[bumper2].switchState == swOff && outputs[bumper3].switchState == swOff){
+			outputs[bumper1].activate();
 		}
 	}
 	//drop tarrgets
 	if(button[4].uniquePress()){
-		switches[dropTarggets].activate();
+		outputs[dropTarggets].activate();
 	}
 	
 	if(button[6].uniquePress()){
 		gameSt = stReturnBall;
 	}
-	
-	loopSwitches();
 }
 
 void loopSwitches(){
-	switches[flickUp].loop();
-	switches[bumper1].loop();
-	switches[bumper2].loop();
-	switches[bumper3].loop();
-	switches[dropTarggets].loop();
-	switches[swReturnBall].loop();
+	outputs[flickUp].loop();
+	outputs[bumper1].loop();
+	outputs[bumper2].loop();
+	outputs[bumper3].loop();
+	outputs[dropTarggets].loop();
+	outputs[swReturnBall].loop();
 }
 int state = 0;
 void returnBall(){
-	loopSwitches();
 	if(state == 0){
-		switches[dropTarggets].activate();
-		switches[swReturnBall].activate();
+		outputs[dropTarggets].activate();
+		outputs[swReturnBall].activate();
 		state = 1;
-	}else if(state == 1 && switches[swReturnBall].switchState == swOff){
+	}else if(state == 1 && outputs[swReturnBall].switchState == swOff){
 		if(button[5].uniquePress()){
 			gameSt = stBallinPlay;
 			state = 0;
@@ -119,6 +116,7 @@ void loop(){
 			returnBall();
 			break;
 	}
+	loopSwitches();
 }
 
 /*

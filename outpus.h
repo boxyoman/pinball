@@ -3,18 +3,6 @@
 
 #include "Arduino.h"
 
-enum {
-	bumper1,
-	bumper2,
-	bumper3,
-	dropTarggets,
-	targget2,
-	targget3,
-	flickUp,
-	swReturnBall,
-	numOfSwitches
-};
-
 typedef enum{
 	swInDelay=0,
 	swOn=1,
@@ -34,6 +22,12 @@ public:
 	switchStates switchState;
 	void loop(); //call every tick
 	void activate();
+	
+	//
+	virtual void onActive(){};
+	virtual void onDeavtive(){};
+	
+	
 private:
 	unsigned long startTime;
 	void setup();
