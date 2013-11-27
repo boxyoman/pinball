@@ -5,10 +5,10 @@
 #include "game.h"
 
 class pButFlickup : public pButton{
-	privite:
-		pGame &game;
+	pGame &game;
+	
 	public:
-		pButFlickup(pGame &game) : pButton(53, 70, HIGH);
+		pButFlickup(pGame &_game) : game(_game), pButton(53, 70, HIGH){};
 		void onActive();
 		
 };

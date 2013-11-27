@@ -5,10 +5,10 @@
 #include "game.h"
 
 class pButDropTargets : public pButton{
-	privite:
-		pGame &game;
+	pGame &game;
+	
 	public:
-		pButDropTargets(pGame &game) : pButton(45, 70, HIGH);
+		pButDropTargets(pGame &_game) : game(_game), pButton(45, 70, HIGH){};
 		void onActive();
 		
 };

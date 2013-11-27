@@ -3,9 +3,9 @@
 
 #include "outputs.h"
 
-class pOutButton2 : public pOutputs{
+class pOutBumper2 : public pOutputs{
 	public:
-		pOutButton2() : pOutputs(50, 70, 0, LOW){};
+		pOutBumper2() : pOutputs(50, 70, 0, LOW){};
 };
 
 #endif

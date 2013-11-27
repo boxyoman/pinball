@@ -5,10 +5,10 @@
 #include "game.h"
 
 class pButBumper3 : public pButton{
-	privite:
-		pGame &game;
+	pGame &game;
+	
 	public:
-		pButBumper3(pGame &game) : pButton(49, 70, HIGH);
+		pButBumper3(pGame &_game) : game(_game), pButton(49, 70, HIGH){};
 		void onActive();
 		
 };
