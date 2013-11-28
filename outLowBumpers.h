@@ -4,16 +4,16 @@
 #include "outputs.h"
 #include "game.h"
 
-class pOutLowBumberLeft : public pOutputs{
+class pOutLowBumperLeft : public pOutputs{
 	pGame &game;
 	public:
-		pOutLowBumberLeft(pGame &g) : game(g), pOutputs(30, 70, 0, LOW){};
+		pOutLowBumperLeft(pGame &g) : game(g), pOutputs(30, 70, 0, LOW){};
 };
 
-class pOutLowBumberRight : public pOutputs{
+class pOutLowBumperRight : public pOutputs{
 	pGame &game;
 	public:
-		pOutLowBumberRight(pGame &g) : game(g), pOutputs(32, 70, 0, LOW){};
+		pOutLowBumperRight(pGame &g) : game(g), pOutputs(32, 70, 0, LOW){};
 };
 
 #endif

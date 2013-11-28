@@ -10,6 +10,8 @@ enum {
 	outDropTargets,
 	outFlickUp,
 	outReturnBall,
+	outLowBumperRight,
+	outLowBumperLeft,
 	numOfOutputs
 };
 
