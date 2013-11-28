@@ -1,5 +1,9 @@
 #include "butDropTargets.h"
 
 void pButDropTargets::onActive(){
-	game.outputs[outDropTargets]->activate();
+	Serial.write("drop targets down\n");
+	game.dropTargetsDown = true;
+	if (game.dropTargetAbility){
+		game.outputs[outDropTargets]->activate();
+	}
 }

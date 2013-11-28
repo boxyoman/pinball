@@ -27,7 +27,6 @@ void pButton::loop(){
 		if(lastState == state){
 			if (eTime > onTime){
 				if (letGo){
-					Serial.write("pButReturnBall activated\n");
 					this->onActive();
 					letGo = false;
 				}

@@ -7,6 +7,10 @@
 class pGame{
 	public:
 		int ballCount;
+		bool targetNum[3];
+		bool dropTargetsDown;
+		bool dropTargetAbility;
+		
 		void loop();
 		void setup();
 		pOutputs *outputs[numOfOutputs];

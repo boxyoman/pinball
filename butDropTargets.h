@@ -8,7 +8,7 @@ class pButDropTargets : public pButton{
 	pGame &game;
 	
 	public:
-		pButDropTargets(pGame &_game) : game(_game), pButton(45, 70, HIGH){};
+		pButDropTargets(pGame &_game) : game(_game), pButton(45, 200, HIGH){};
 		void onActive();
 		
 };
