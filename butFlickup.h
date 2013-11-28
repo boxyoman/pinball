@@ -4,6 +4,8 @@
 #include "button.h"
 #include "game.h"
 
+
+
 class pButFlickup : public pButton{
 	pGame &game;
 	

@@ -7,7 +7,7 @@
 class pButTarget3 : public pButton{
 	pGame &game;
 	public:
-		pButTarget3(pGame &_game) : game(_game), pButton(35, 20, HIGH){};
+		pButTarget3(pGame &_game) : game(_game), pButton(35, 5, HIGH){};
 		void onActive();
 		
 };
