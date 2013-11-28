@@ -14,6 +14,8 @@ enum{
 	butFlickup,
 	butReturnBall,
 	butBallReturned,
+	butLowBumberLeft,
+	butLowBumberRight,
 	numOfButtons
 };
 

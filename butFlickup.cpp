@@ -8,6 +8,5 @@ void pButFlickup::onActive(){
 		game.targetNum[0] = false;
 		game.targetNum[1] = false;
 		game.targetNum[2] = false;
-		Serial.write("WINNER!!!!!!");
 	}
 }

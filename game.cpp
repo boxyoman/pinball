@@ -15,6 +15,8 @@
 #include "outDropTargets.h"
 #include "outFlickup.h"
 #include "outReturnBall.h"
+#include "outLowBumpers.h"
+#include "butLowBumpers.h"
 
 void pGame::setup(){
 	//initialize game here
@@ -39,6 +41,9 @@ void pGame::setup(){
 	buttons[butTarget1] = new pButTarget1(*this);
 	buttons[butTarget2] = new pButTarget2(*this);
 	buttons[butTarget3] = new pButTarget3(*this);
+	buttons[butLowBumberRight] = new pButLowBumperRight(*this);
+	buttons[butLowBumberLeft] = new pButLowBumperLeft(*this);
+	
 	
 	outputs[outBumper1] = new pOutBumper1(*this);
 	outputs[outBumper2] = new pOutBumper2(*this);
@@ -46,6 +51,8 @@ void pGame::setup(){
 	outputs[outDropTargets] = new pOutDropTargets(*this);
 	outputs[outFlickUp] = new pOutFlickUp(*this);
 	outputs[outReturnBall] = new pOutReturnBall(*this);
+	buttons[butLowBumberRight] = new pOutLowBumperRight(*this);
+	buttons[butLowBumberLeft] = new pOutLowBumperLeft(*this);
 	
 }
 
