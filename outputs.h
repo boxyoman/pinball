@@ -1,49 +1,58 @@
 #ifndef outputs_h
 #define outputs_h
 
-#include "Arduino.h"
+#include "output.h"
+#include "game.h"
 
-enum {
-	outBumper1,
-	outBumper2,
-	outBumper3,
-	outDropTargets,
-	outFlickUp,
-	outReturnBall,
-	outLowBumperRight,
-	outLowBumperLeft,
-	numOfOutputs
-};
-
-typedef enum{
-	swInDelay,
-	swOn,
-	swOff,
-} switchStates;
-
-class pOutputs{
+class pOutBumper1 : public pOutput{
+	pGame &game;
 	public:
-		pOutputs();
-		pOutputs(int pinNum, int onTime, int delayTime);
-		pOutputs(int pinNum, int onTime, int delayTime, bool activeState);
-		int pinNum;
-		int onTime; //the amount of time the switch should be on for(in milliseconds)
-		int delayTime;
-		bool state;
-		bool activeState;
-		switchStates switchState;
-		void loop(); //call every tick
-		void activate();
-	
-	protected:
-		//for subclassing
-		virtual void onActive(){};
-		virtual void onDeavtive(){};
-	
-	
-	private:
-		unsigned long startTime;
-		void setup();
+		pOutBumper1(pGame &g) : game(g), pOutput(48, 70, 0, LOW){};
 };
+
+class pOutBumper2 : public pOutput{
+	pGame &game;
+	public:
+		pOutBumper2(pGame &g) : game(g), pOutput(50, 70, 0, LOW){};
+};
+
+class pOutBumper3 : public pOutput{
+	pGame &game;
+	public:
+		pOutBumper3(pGame &g) : game(g), pOutput(46, 70, 0, LOW){};
+};
+
+class pOutDropTargets : public pOutput{
+	public:
+		pGame &game;
+		pOutDropTargets(pGame &g) : game(g), pOutput(44, 70, 500, LOW){};
+		void onActive();
+};
+
+class pOutFlickUp : public pOutput{
+	pGame &game;
+	public:
+		pOutFlickUp(pGame &g) : game(g), pOutput(52, 70, 1000, LOW){};
+};
+
+class pOutLowBumperLeft : public pOutput{
+	pGame &game;
+	public:
+		pOutLowBumperLeft(pGame &g) : game(g), pOutput(30, 70, 0, LOW){};
+};
+
+class pOutLowBumperRight : public pOutput{
+	pGame &game;
+	public:
+		pOutLowBumperRight(pGame &g) : game(g), pOutput(32, 70, 0, LOW){};
+};
+
+class pOutReturnBall : public pOutput{
+	pGame &game;
+	public:
+		pOutReturnBall(pGame &g) : game(g), pOutput(42, 70, 1000, LOW){};
+};
+
+
 
 #endif

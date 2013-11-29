@@ -1,7 +1,7 @@
 #ifndef game_h
 #define game_h
 
-#include "outputs.h"
+#include "output.h"
 #include "button.h"
 
 class pGame{
@@ -13,7 +13,7 @@ class pGame{
 		
 		void loop();
 		void setup();
-		pOutputs *outputs[numOfOutputs];
+		pOutput *outputs[numOfOutputs];
 		pButton *buttons[numOfButtons];
 };
 

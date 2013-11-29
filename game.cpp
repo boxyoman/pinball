@@ -1,12 +1,6 @@
 #include "game.h"
 #include "buttons.h"
-#include "outBumper1.h"
-#include "outBumper2.h"
-#include "outBumper3.h"
-#include "outDropTargets.h"
-#include "outFlickup.h"
-#include "outReturnBall.h"
-#include "outLowBumpers.h"
+#include "outputs.h"
 
 void pGame::setup(){
 	//initialize game here
