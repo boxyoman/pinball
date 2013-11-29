@@ -77,7 +77,7 @@ class pButLowBumperLeft : public pButton{
 class pButReturnBall : public pButton{
 	pGame &game;
 	public:
-		pButReturnBall(pGame &_game) : game(_game), pButton(41, 70, HIGH){ Serial.write("pButReturnBall initialized\n"); };
+		pButReturnBall(pGame &_game) : game(_game), pButton(41, 70, HIGH){};
 		void onActive();
 		
 };
