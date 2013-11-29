@@ -2,8 +2,8 @@
 #include "buttons.h"
 #include "outputs.h"
 
-void pGame::setup(){
-	//initialize game here
+void pGame::setup(){ //initialize game here
+	
 	Serial.begin(9600);
 	Serial.write("Started\n");
 	
@@ -15,6 +15,7 @@ void pGame::setup(){
 	dropTargetAbility = true;
 	dropTargetsDown = false;
 	
+	//initializing buttons
 	buttons[butBumper1] = new pButBumper1(*this);
 	buttons[butBumper2] = new pButBumper2(*this);
 	buttons[butBumper3] = new pButBumper3(*this);
@@ -28,7 +29,7 @@ void pGame::setup(){
 	buttons[butLowBumberRight] = new pButLowBumperRight(*this);
 	buttons[butLowBumberLeft] = new pButLowBumperLeft(*this);
 	
-	
+	//initializing outputs
 	outputs[outBumper1] = new pOutBumper1(*this);
 	outputs[outBumper2] = new pOutBumper2(*this);
 	outputs[outBumper3] = new pOutBumper3(*this);
