@@ -14,8 +14,8 @@ enum{
 	butFlickup,
 	butReturnBall,
 	butBallReturned,
-	butLowBumberLeft,
-	butLowBumberRight,
+	butLowBumperLeft,
+	butLowBumperRight,
 	numOfButtons
 };
 
@@ -35,7 +35,7 @@ class pButton{
 		
 	private:
 		//for subclassing
-		virtual void onActive(){ Serial.write("pButton onactive called\n"); };
+		virtual void onActive(){};
 		
 
 };

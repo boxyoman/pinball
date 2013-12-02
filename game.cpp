@@ -7,7 +7,7 @@ void pGame::setup(){ //initialize game here
 	Serial.begin(9600);
 	Serial.write("Started\n");
 	
-	ballCount = 5;
+	ballCount = 0;
 	//target variables
 	targetNum[0] = false;
 	targetNum[1] = false;
@@ -26,8 +26,8 @@ void pGame::setup(){ //initialize game here
 	buttons[butTarget1] = new pButTarget1(*this);
 	buttons[butTarget2] = new pButTarget2(*this);
 	buttons[butTarget3] = new pButTarget3(*this);
-	buttons[butLowBumberRight] = new pButLowBumperRight(*this);
-	buttons[butLowBumberLeft] = new pButLowBumperLeft(*this);
+	buttons[butLowBumperRight] = new pButLowBumperRight(*this);
+	buttons[butLowBumperLeft] = new pButLowBumperLeft(*this);
 	
 	//initializing outputs
 	outputs[outBumper1] = new pOutBumper1(*this);
@@ -39,9 +39,23 @@ void pGame::setup(){ //initialize game here
 	outputs[outLowBumperRight] = new pOutLowBumperRight(*this);
 	outputs[outLowBumperLeft] = new pOutLowBumperLeft(*this);
 	
+	//initializing lights
+	lights[litBumper1] = new pLight(12, true, true);
+	lights[litBumper2] = new pLight(11, true, true);
+	lights[litBumper3] = new pLight(10, true, true);
+	lights[litTarget1] = new pLight(9, true, true);
+	lights[litTarget2] = new pLight(8, true, true);
+	lights[litTarget3] = new pLight(7, true, true);
+	lights[litLowBumperLeft] = new pLight(6, true, true);
+	lights[litLowBumperRight] = new pLight(5, true, true);
+	
+	//function to put arduino into the start of a game
+	resetLoop();
+	
 }
 
 void pGame::loop(){
+	
 	//loop through outputs
 	for(int i=0; i<numOfOutputs; i++){
 		outputs[i]->loop();
@@ -50,4 +64,23 @@ void pGame::loop(){
 	for(int i=0; i<numOfButtons; i++){
 		buttons[i]->loop();
 	}
+}
+
+void pGame::resetLoop(){
+	while (ballCount == 0){
+		buttons[butBallReturned]->loop();
+	}
+	reset();
+}
+
+void pGame::reset(){
+	ballCount = 5;
+	//target variables
+	targetNum[0] = false;
+	targetNum[1] = false;
+	targetNum[2] = false;
+	dropTargetAbility = true;
+	dropTargetsDown = false;
+	outputs[outReturnBall]->activate();
+	outputs[outDropTargets]->activate();
 }
