@@ -4,6 +4,11 @@ void pButBallReturned::onActive(){
 	game.ballCount--;
 	Serial.print(game.ballCount);
 	Serial.write(" balls left\n");
+	if (game.ballCount < 0){
+		game.ballCount = 5;
+		game.outputs[outReturnBall]->activate();
+		game.outputs[outDropTargets]->activate();
+	}
 	
 }
 
@@ -50,6 +55,7 @@ void pButReturnBall::onActive(){
 		game.outputs[outReturnBall]->activate();
 		game.outputs[outDropTargets]->activate();
 	}
+	
 }
 
 void pButTarget1::onActive(){
