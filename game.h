@@ -3,6 +3,7 @@
 
 #include "output.h"
 #include "button.h"
+#include "light.h"
 
 class pGame{
 	public:
@@ -13,8 +14,11 @@ class pGame{
 		
 		void loop();
 		void setup();
+		void resetLoop();
+		void reset();
 		pOutput *outputs[numOfOutputs];
 		pButton *buttons[numOfButtons];
+		pLight *lights[numOfLights];
 };
 
 #endif

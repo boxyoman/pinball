@@ -56,6 +56,10 @@ void pButReturnBall::onActive(){
 		game.outputs[outDropTargets]->activate();
 	}
 	
+	if (game.ballCount <= 0){
+		game.ballCount = 0;
+		game.resetLoop();
+	}
 }
 
 void pButTarget1::onActive(){
