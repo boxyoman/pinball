@@ -39,6 +39,9 @@ void pButFlickup::onActive(){
 		game.targetNum[0] = false;
 		game.targetNum[1] = false;
 		game.targetNum[2] = false;
+		game.lights[litTarget1]->lightOn();
+		game.lights[litTarget2]->lightOn();
+		game.lights[litTarget3]->lightOn();
 	}
 }
 
@@ -65,12 +68,14 @@ void pButReturnBall::onActive(){
 void pButTarget1::onActive(){
 	Serial.write("Target 1 click\n");
 	game.targetNum[0] = true;
+	game.lights[litTarget1]->lightOff();
 }
 
 void pButTarget2::onActive(){
 	Serial.write("Target 2 click\n");
 	if (game.targetNum[0] == true){
 		game.targetNum[1] = true;
+		game.lights[litTarget2]->lightOff();
 	}
 }
 
@@ -80,6 +85,7 @@ void pButTarget3::onActive(){
 		game.targetNum[2] = true;
 		game.outputs[outDropTargets]->activate();
 		game.dropTargetAbility = false;
+		game.lights[litTarget3]->lightOff();
 		
 	}
 }
