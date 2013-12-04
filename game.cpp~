@@ -40,14 +40,14 @@ void pGame::setup(){ //initialize game here
 	outputs[outLowBumperLeft] = new pOutLowBumperLeft(*this);
 	
 	//initializing lights
-	lights[litBumper1] = new pLight(12, HIGH, HIGH);
-	lights[litBumper2] = new pLight(11, HIGH, HIGH);
-	lights[litBumper3] = new pLight(10, HIGH, HIGH);
-	lights[litTarget1] = new pLight(9, HIGH, HIGH);
-	lights[litTarget2] = new pLight(8, HIGH, HIGH);
-	lights[litTarget3] = new pLight(7, HIGH, HIGH);
-	lights[litLowBumperLeft] = new pLight(6, HIGH, HIGH);
-	lights[litLowBumperRight] = new pLight(5, HIGH, HIGH);
+	lights[litBumper1] = new pLight(12, true, true);
+	lights[litBumper2] = new pLight(11, true, true);
+	lights[litBumper3] = new pLight(10, true, true);
+	lights[litTarget1] = new pLight(9, true, true);
+	lights[litTarget2] = new pLight(8, true, true);
+	lights[litTarget3] = new pLight(7, true, true);
+	lights[litLowBumperLeft] = new pLight(6, true, true);
+	lights[litLowBumperRight] = new pLight(5, true, true);
 	
 	//function to put arduino into the start of a game
 	resetLoop();
