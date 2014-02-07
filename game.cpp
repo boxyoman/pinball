@@ -49,6 +49,9 @@ void pGame::setup(){ //initialize game here
 	lights[litLowBumperLeft] = new pLight(6, HIGH, HIGH);
 	lights[litLowBumperRight] = new pLight(5, HIGH, HIGH);
 	
+	//initialize the scorewheels
+	score = new pScore(*this);
+	
 	//function to put arduino into the start of a game
 	resetLoop();
 	
