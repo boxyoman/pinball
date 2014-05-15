@@ -1,8 +1,11 @@
 #ifndef score_h
 #define score_h
 
-#include "game.h"
+
 #include "Arduino.h"
+#include "output.h"
+
+class pGame;
 
 typedef enum{
 	pScoreReset,
@@ -10,19 +13,19 @@ typedef enum{
 }pScoreState;
 
 class pScore{
-	int score;
-	int displayedScore;
+	int score;						//the current score
+	int displayedScore;				//the current score on the score wheels
 	pGame &game;
 	pOutput *scoreWheels[4];
 public:
 	pScoreState state;
-	pScore(pGame &g): game(&g){
+	pScore(pGame &g): game(g){
 		init();	
 	};
 	void init();
-	void reset();
-	void add(int points);
-	void operator +=(int points);
+	void reset();					//reset score
+	void add(int points);			//add some more points
+	void operator +=(int points);	//add some more points
 	void loop();
 };
 

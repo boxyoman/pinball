@@ -9,7 +9,13 @@ class pButBallReturned : public pButton{
 	public:
 		pButBallReturned(pGame &_game) : game(_game), pButton(42, 70, HIGH){};
 		void onActive();
-		
+};
+
+class pButReturnBall : public pButton{
+	pGame &game;
+	public:
+		pButReturnBall(pGame &_game) : game(_game), pButton(44, 70, HIGH){};
+		void onActive();
 };
 
 class pButBumper1 : public pButton{
@@ -17,7 +23,6 @@ class pButBumper1 : public pButton{
 	public:
 		pButBumper1(pGame &_game) : game(_game), pButton(22, 1, HIGH){};
 		void onActive();
-		
 };
 
 class pButBumper2 : public pButton{
@@ -26,7 +31,6 @@ class pButBumper2 : public pButton{
 	public:
 		pButBumper2(pGame &_game) : game(_game), pButton(24, 1, HIGH){};
 		void onActive();
-		
 };
 
 class pButBumper3 : public pButton{
@@ -35,7 +39,6 @@ class pButBumper3 : public pButton{
 	public:
 		pButBumper3(pGame &_game) : game(_game), pButton(26, 1, HIGH){};
 		void onActive();
-		
 };
 
 class pButDropTargets : public pButton{
@@ -44,7 +47,6 @@ class pButDropTargets : public pButton{
 	public:
 		pButDropTargets(pGame &_game) : game(_game), pButton(40, 200, HIGH){};
 		void onActive();
-		
 };
 
 class pButFlickup : public pButton{
@@ -53,7 +55,6 @@ class pButFlickup : public pButton{
 	public:
 		pButFlickup(pGame &_game) : game(_game), pButton(38, 70, HIGH){};
 		void onActive();
-		
 };
 
 class pButLowBumperRight : public pButton{
@@ -62,7 +63,6 @@ class pButLowBumperRight : public pButton{
 	public:
 		pButLowBumperRight(pGame &_game) : game(_game), pButton(36, 1, HIGH){};
 		void onActive();
-		
 };
 
 class pButLowBumperLeft : public pButton{
@@ -71,15 +71,6 @@ class pButLowBumperLeft : public pButton{
 	public:
 		pButLowBumperLeft(pGame &_game) : game(_game), pButton(34, 1, HIGH){};
 		void onActive();
-		
-};
-
-class pButReturnBall : public pButton{
-	pGame &game;
-	public:
-		pButReturnBall(pGame &_game) : game(_game), pButton(44, 70, HIGH){};
-		void onActive();
-		
 };
 
 class pButTarget1 : public pButton{
@@ -87,7 +78,6 @@ class pButTarget1 : public pButton{
 	public:
 		pButTarget1(pGame &_game) : game(_game), pButton(28, 5, HIGH){};
 		void onActive();
-		
 };
 
 class pButTarget2 : public pButton{
@@ -95,7 +85,6 @@ class pButTarget2 : public pButton{
 	public:
 		pButTarget2(pGame &_game) : game(_game), pButton(30, 5, HIGH){};
 		void onActive();
-		
 };
 
 class pButTarget3 : public pButton{
@@ -103,7 +92,6 @@ class pButTarget3 : public pButton{
 	public:
 		pButTarget3(pGame &_game) : game(_game), pButton(32, 5, HIGH){};
 		void onActive();
-		
 };
 
 #endif
