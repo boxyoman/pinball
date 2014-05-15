@@ -1,9 +1,22 @@
 #include "buttons.h"
 
+void pButReturnBall::onActive(){
+	if (game.ballCount > 0){
+		game.outputs[outReturnBall]->activate();
+		game.outputs[outDropTargets]->activate();
+	}
+	
+	if (game.ballCount <= 0){
+		game.ballCount = 0;
+		game.resetLoop();
+	}
+}
+
 void pButBallReturned::onActive(){
 	game.ballCount--;
 	Serial.print(game.ballCount);
 	Serial.write(" balls left\n");
+	game.outputs[outBumper1]->activate();
 	if (game.ballCount < 0){
 		game.ballCount = 5;
 		game.outputs[outReturnBall]->activate();
@@ -51,18 +64,6 @@ void pButLowBumperRight::onActive(){
 
 void pButLowBumperLeft::onActive(){
 	game.outputs[outLowBumperLeft]->activate();
-}
-
-void pButReturnBall::onActive(){
-	if (game.ballCount > 0){
-		game.outputs[outReturnBall]->activate();
-		game.outputs[outDropTargets]->activate();
-	}
-	
-	if (game.ballCount <= 0){
-		game.ballCount = 0;
-		game.resetLoop();
-	}
 }
 
 void pButTarget1::onActive(){

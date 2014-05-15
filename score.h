@@ -13,8 +13,8 @@ typedef enum{
 }pScoreState;
 
 class pScore{
-	int score;
-	int displayedScore;
+	int score;						//the current score
+	int displayedScore;				//the current score on the score wheels
 	pGame &game;
 	pOutput *scoreWheels[4];
 public:
@@ -23,9 +23,9 @@ public:
 		init();	
 	};
 	void init();
-	void reset();
-	void add(int points);
-	void operator +=(int points);
+	void reset();					//reset score
+	void add(int points);			//add some more points
+	void operator +=(int points);	//add some more points
 	void loop();
 };
 
