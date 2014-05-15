@@ -16,7 +16,6 @@ void pButBallReturned::onActive(){
 	game.ballCount--;
 	Serial.print(game.ballCount);
 	Serial.write(" balls left\n");
-	game.outputs[outBumper1]->activate();
 	if (game.ballCount < 0){
 		game.ballCount = 5;
 		game.outputs[outReturnBall]->activate();
