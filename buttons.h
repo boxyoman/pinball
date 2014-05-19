@@ -11,6 +11,14 @@ class pButBallReturned : public pButton{
 		void onActive();
 };
 
+class pButStart : public pButton{
+	pGame &game;
+	public:
+		pButStart(pGame &_game) : game(_game), pButton(46, 70, HIGH){};
+		void onActive();
+};
+
+
 class pButReturnBall : public pButton{
 	pGame &game;
 	public:
