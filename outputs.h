@@ -8,18 +8,21 @@ class pOutBumper1 : public pOutput{
 	pGame &game;
 	public:
 		pOutBumper1(pGame &g) : game(g), pOutput(47, 70, 0, LOW){};
+		void onActive();
 };
 
 class pOutBumper2 : public pOutput{
 	pGame &game;
 	public:
 		pOutBumper2(pGame &g) : game(g), pOutput(49, 70, 0, LOW){};
+		void onActive();
 };
 
 class pOutBumper3 : public pOutput{
 	pGame &game;
 	public:
 		pOutBumper3(pGame &g) : game(g), pOutput(45, 70, 0, LOW){};
+		void onActive();
 };
 
 class pOutDropTargets : public pOutput{
