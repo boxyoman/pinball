@@ -25,7 +25,6 @@ public:
 	void init();
 	void reset();					//reset score
 	void add(int points);			//add some more points
-	void operator += (int points);	//add some more points
 	void loop();
 };
 

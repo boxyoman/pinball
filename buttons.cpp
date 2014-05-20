@@ -25,15 +25,17 @@ void pButStart::onActive(){
 
 void pButBumper1::onActive(){
 	game.outputs[outBumper1]->activate();
-	game.score->add(5);
+	game.score->add(1);
 }
 
 void pButBumper2::onActive(){
 	game.outputs[outBumper2]->activate();
+	game.score->add(2);
 }
 
 void pButBumper3::onActive(){
 	game.outputs[outBumper3]->activate();
+	game.score->add(3);
 }
 
 void pButDropTargets::onActive(){
