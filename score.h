@@ -13,10 +13,11 @@ typedef enum{
 }pScoreState;
 
 class pScore{
-	int score;						//the current score
+	unsigned int score;						//the current score
 	int displayedScore;				//the current score on the score wheels
 	pGame &game;
 	pOutput *scoreWheels[4];
+	pOutput *resetOut;
 public:
 	pScoreState state;
 	pScore(pGame &g): game(g){

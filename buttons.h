@@ -60,7 +60,7 @@ class pButFlickup : public pButton{
 	pGame &game;
 	
 	public:
-		pButFlickup(pGame &_game) : game(_game), pButton(38, 70, HIGH){};
+		pButFlickup(pGame &_game) : game(_game), pButton(38, 200, HIGH){};
 		void onActive();
 };
 

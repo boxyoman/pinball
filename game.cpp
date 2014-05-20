@@ -86,6 +86,7 @@ void pGame::reset(){
 	targetNum[2] = false;
 	dropTargetAbility = true;
 	dropTargetsDown = false;
+	score->reset();
 	outputs[outReturnBall]->activate();
 	outputs[outDropTargets]->activate();
 }

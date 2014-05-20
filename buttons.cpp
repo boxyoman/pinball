@@ -25,20 +25,18 @@ void pButStart::onActive(){
 
 void pButBumper1::onActive(){
 	game.outputs[outBumper1]->activate();
-	game.score->add(1);
 }
 
 void pButBumper2::onActive(){
 	game.outputs[outBumper2]->activate();
-	game.score->add(2);
 }
 
 void pButBumper3::onActive(){
 	game.outputs[outBumper3]->activate();
-	game.score->add(3);
 }
 
 void pButDropTargets::onActive(){
+	game.score->add(200);
 	game.dropTargetsDown = true;
 	if (game.dropTargetAbility){
 		game.outputs[outDropTargets]->activate();
@@ -46,6 +44,7 @@ void pButDropTargets::onActive(){
 }
 
 void pButFlickup::onActive(){
+	game.score->add(100);
 	game.outputs[outFlickUp]->activate();
 	if (game.targetNum[0] && game.targetNum[1] && game.targetNum[0] && game.targetNum[2] && game.dropTargetsDown){
 		game.outputs[outDropTargets]->activate();
@@ -60,21 +59,23 @@ void pButFlickup::onActive(){
 }
 
 void pButLowBumperRight::onActive(){
+	game.score->add(10);
 	game.outputs[outLowBumperRight]->activate();
 }
 
 void pButLowBumperLeft::onActive(){
+	game.score->add(10);
 	game.outputs[outLowBumperLeft]->activate();
 }
 
 void pButTarget1::onActive(){
-	Serial.write("Target 1 click\n");
 	game.targetNum[0] = true;
 	game.lights[litTarget1]->lightOff();
+	game.score->add(25);
 }
 
 void pButTarget2::onActive(){
-	Serial.write("Target 2 click\n");
+	game.score->add(25);
 	if (game.targetNum[0] == true){
 		game.targetNum[1] = true;
 		game.lights[litTarget2]->lightOff();
@@ -82,7 +83,7 @@ void pButTarget2::onActive(){
 }
 
 void pButTarget3::onActive(){
-	Serial.write("Target 3 click\n");
+	game.score->add(25);
 	if (game.targetNum[1] == true && game.targetNum[2] == false){
 		game.targetNum[2] = true;
 		game.outputs[outDropTargets]->activate();
