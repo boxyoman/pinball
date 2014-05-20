@@ -14,6 +14,7 @@ void pScore::init(){
 
 void pScore::reset(){
 	score = 0;
+	displayedScore = 0;
 	for(int i=0; i<10; i++){
 		resetOut->activate();
 		while(resetOut->switchState != swOff){
