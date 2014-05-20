@@ -25,6 +25,7 @@ void pButStart::onActive(){
 
 void pButBumper1::onActive(){
 	game.outputs[outBumper1]->activate();
+	game.score->add(5);
 }
 
 void pButBumper2::onActive(){

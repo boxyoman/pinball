@@ -16,9 +16,9 @@ enum {
 };
 
 typedef enum{
-	swInDelay,
-	swOn,
-	swOff,
+	swInDelay=0,
+	swOn=1,
+	swOff=3,
 } switchStates;
 
 class pOutput{

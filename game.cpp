@@ -69,6 +69,7 @@ void pGame::loop(){
 	for(int i=0; i<numOfButtons; i++){
 		buttons[i]->loop();
 	}
+	score->loop();
 }
 
 void pGame::resetLoop(){
