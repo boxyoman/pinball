@@ -28,6 +28,8 @@ void pGame::setup(){ //initialize game here
 	buttons[butTarget3] = new pButTarget3(*this);
 	buttons[butLowBumperRight] = new pButLowBumperRight(*this);
 	buttons[butLowBumperLeft] = new pButLowBumperLeft(*this);
+	buttons[butStart] = new pButStart(*this);
+
 	
 	//initializing outputs
 	outputs[outBumper1] = new pOutBumper1(*this);
@@ -71,9 +73,8 @@ void pGame::loop(){
 
 void pGame::resetLoop(){
 	while (ballCount == 0){
-		buttons[butBallReturned]->loop();
+		buttons[butStart]->loop();
 	}
-	reset();
 }
 
 void pGame::reset(){

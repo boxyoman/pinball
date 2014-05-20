@@ -16,6 +16,7 @@ enum{
 	butBallReturned,
 	butLowBumperLeft,
 	butLowBumperRight,
+	butStart,
 	numOfButtons
 };
 

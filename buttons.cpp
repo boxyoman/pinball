@@ -5,26 +5,22 @@ void pButReturnBall::onActive(){
 		game.outputs[outReturnBall]->activate();
 		game.outputs[outDropTargets]->activate();
 	}
-}
-
-void pButStart::onActive(){
 	if (game.ballCount <= 0){
-		game.ballCount = 0;
 		game.resetLoop();
 	}
 }
-
 
 void pButBallReturned::onActive(){
 	game.ballCount--;
 	Serial.print(game.ballCount);
 	Serial.write(" balls left\n");
-	if (game.ballCount < 0){
-		game.ballCount = 5;
-		game.outputs[outReturnBall]->activate();
-		game.outputs[outDropTargets]->activate();
+}
+
+void pButStart::onActive(){
+	Serial.write("Start Pressed!\n");
+	if (game.ballCount <= 0){
+		game.reset();
 	}
-	
 }
 
 void pButBumper1::onActive(){
