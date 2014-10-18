@@ -6,3 +6,11 @@ void setup(){
 void loop(){
 	game.loop();
 }
+
+int main(){
+	init();
+	setup();
+	while(1){
+		loop();
+	}
+}
