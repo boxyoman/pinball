@@ -14,7 +14,7 @@ typedef enum{
 
 class pScore{
 	unsigned int score;						//the current score
-	int displayedScore;				//the current score on the score wheels
+	unsigned int displayedScore;				//the current score on the score wheels
 	pGame &game;
 	pOutput *scoreWheels[4];
 	pOutput *resetOut;

@@ -28,7 +28,7 @@ class pOutput{
 		pOutput(int pinNum, int onTime, int delayTime, bool activeState);
 		int pinNum;
 		int onTime; //the amount of time the output should be on for(in milliseconds)
-		int delayTime;
+		unsigned int delayTime;
 		bool state;
 		bool activeState;
 		outputStates switchState;

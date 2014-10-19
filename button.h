@@ -28,7 +28,7 @@ class pButton{
 	bool stateEqual;
 	bool state;
 	unsigned long startTime;
-	int onTime;				//debounce time
+	unsigned long onTime;				//debounce time
 	public:
 		pButton(){};
 		pButton(int pin, int time, bool activeState);

@@ -1,7 +1,7 @@
 CXX=avr-gcc
 BOARD=Mega
 INCLUDE=-I ../include/$(BOARD)/
-LIBS=-L ../lib -lm -lUno
+LIBS=-L ../lib -lm -l$(BOARD)
 MCU=-mmcu=atmega1280
 CPU_SPEED=-DF_CPU=16000000UL
 CFLAGS=$(MCU) $(CPU_SPEED) -Os -Wall -Wl,--gc-sections -ffunction-sections -fdata-sections
@@ -34,5 +34,8 @@ clean:
 	$(shell rm $(BUILD)*.o 2> /dev/null)
 	@echo " done"
 
-$(BUILD)%.o: %.cpp
+$(BUILD)main.o: main.cpp 
+	$(CXX) $< $(CFLAGS) $(INCLUDE) -c -o $@
+
+$(BUILD)%.o: %.cpp %.h
 	$(CXX) $< $(CFLAGS) $(INCLUDE) -c -o $@
